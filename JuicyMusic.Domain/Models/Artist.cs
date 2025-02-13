@@ -2,14 +2,17 @@
 {
     public class Artist
     {
-        internal Artist(string name,string description) 
+        internal Artist(Guid id, string name,string description, Genre genre, string imageUrl)
         {
             Name = name;
             Followers = 0;
             Description = description;
+            Genre = genre;
+            ImageUrl = imageUrl;
+            Id = id;
         }
 
-        public static Artist Create(string name, string description)
+        public static Artist Create(Guid id, string name, string description, Genre genre, string imageUrl)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Artist name cannot be empty.");
@@ -17,7 +20,10 @@
             if (string.IsNullOrWhiteSpace(description))
                 throw new ArgumentException("Artist description cannot be empty.");
 
-            return new Artist(name, description);
+            if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
+                throw new ArgumentException("URL is not valid.");
+
+            return new Artist(id, name, description, genre, imageUrl);
         }
 
         public string Name { get; private set; }
@@ -26,7 +32,13 @@
 
         public string Description { get; private set; }
 
-        public void ChangeDescription(string description) 
+        public Genre Genre { get; private set; }
+
+        public string ImageUrl { get; private set; }
+
+        public Guid id { get; private set; }
+
+        public void ChangeDescription(string description)
         {
             if (string.IsNullOrWhiteSpace(description))
                 throw new ArgumentException("Artist description cannot be empty.");
@@ -57,6 +69,14 @@
                 return;
 
             Name = name;
+        }
+
+        public void ChangeImageUrl(string url)
+        {
+             if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
+                throw new ArgumentException("URL is not valid.");
+
+            ImageUrl = url;
         }
     }
 }

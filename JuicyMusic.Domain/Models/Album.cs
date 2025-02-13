@@ -4,7 +4,7 @@ namespace JuicyMusic.Domain
     public class Album
     {
         // Private constructor
-        internal Album(string name, AlbumType type, int totalTracks, DateTime releaseDate, int durationMs)
+        internal Album(Guid id, string name, AlbumType type, int totalTracks, DateTime releaseDate, int durationMs, Genre genre, string imageUrl, Artist artist)
         {
             //? Do we need an Id? YES
             Name = name;
@@ -12,9 +12,13 @@ namespace JuicyMusic.Domain
             TotalTracks = totalTracks;
             ReleaseDate = releaseDate;
             DurationMs = durationMs;
+            Genre = genre;
+            ImageUrl = imageUrl;
+            Artist = artist;
+            Id = id;
         }
 
-        public static Album Create(string name, AlbumType type, int totalTracks, DateTime releaseDate, int durationMs)
+        public static Album Create(Guid id, string name, AlbumType type, int totalTracks, DateTime releaseDate, int durationMs, Genre genre, string imageUrl, Artist artist)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Album name cannot be empty.");
@@ -28,7 +32,10 @@ namespace JuicyMusic.Domain
             if (type == null)
                 throw new ArgumentNullException("Album type cannot be null");
 
-            return new Album(name, type, totalTracks, releaseDate, durationMs);
+            if (string.IsNullOrWhiteSpace(imageUrl) || !Uri.IsWellFormedUriString(imageUrl, UriKind.RelativeOrAbsolute))
+                throw new ArgumentException("URL is not valid.");
+
+            return new Album(id, name, type, totalTracks, releaseDate, durationMs, genre, imageUrl, artist);
         }
 
         // Properties
@@ -42,19 +49,13 @@ namespace JuicyMusic.Domain
 
         public int DurationMs { get; private set; }
 
-        //? Are these needed?
+        public Genre Genre { get; private set; }
 
-        private readonly List<AlbumArtist> _albumArtists = new();
+        public string ImageUrl { get; private set; }
 
-        public IReadOnlyCollection<AlbumArtist> AlbumArtists => _albumArtists.AsReadOnly();
+        public Artist Artist { get; private set; }
 
-        // private readonly List<AlbumGenre> _albumGenres = new();
-
-        // public IReadOnlyCollection<AlbumGenre> AlbumGenres => _albumGenres.AsReadOnly();
-
-        // private readonly List<AlbumImage> _albumImages = new();
-
-        // public IReadOnlyCollection<AlbumImage> AlbumImages => _albumImages.AsReadOnly();
+        public Guid Id { get; private set; }
 
         public void ChangeName(string name)
         {
@@ -97,21 +98,12 @@ namespace JuicyMusic.Domain
             DurationMs = durationMs;
         }
 
-        //? Are these needed?
+        public void ChangeImageUrl(String url)
+        {
+             if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
+                throw new ArgumentException("URL is not valid.");
 
-        // public void AddArtist(Artist artist)
-        // {
-        //     _albumArtists.Add(AlbumArtist.Create(this, artist));
-        // }
-
-        // public void AddGenre(Genre genre)
-        // {
-        //     _albumGenres.Add(AlbumGenre.Create(this, genre));
-        // }
-
-        // public void AddImage(ImageSize imageSize, string url)
-        // {
-        //     _albumImages.Add(AlbumImage.Create(this, imageSize, url));
-        // }
+            Url = url;
+        }
     }
 }

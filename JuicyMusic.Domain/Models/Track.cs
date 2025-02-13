@@ -4,35 +4,45 @@ namespace JuicyMusic.Domain
 {
     public class Track
     {
-        internal Track(string name, bool isExplicit, int durationMs, Album album)
+        internal Track(Guid id, string name, bool isExplicit, int durationMs, Album album, Genre genre, Artist artist, string imageUrl)
         {
             Name = name;
             IsExplicit = isExplicit;
             DurationMs = durationMs;
             Album = album;
+            Genre = genre;
+            Artist = artist;
+            ImageUrl = imageUrl;
         }
 
-        public static Track Create(string name, bool isExplicit, int durationMs, Album album)
+        public static Track Create(Guid id, string name, bool isExplicit, int durationMs, Album album, Genre genre, Artist artist, string imageUrl)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Track name cannot be empty.");
+
+             if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
+                throw new ArgumentException("URL is not valid.");
 
             if (durationMs <= 0)
                 if (durationMs <= 0)
                 throw new ArgumentException("Duration (ms) cannot be empty");
 
-            // check if album exists?
-
-            return new Track(name, isExplicit, durationMs, album);
+            return new Track(id, name, isExplicit, durationMs, album, genre, artist, imageUrl);
         }
 
         public string Name { get; private set; }
 
-        public bool IsExplicit { get; private set; }
-
         public int DurationMs { get; private set; }
 
         public Album Album { get; private set; }
+
+        public Genre Genre { get; private set; }
+
+        public Artist Artist { get; private set; }
+
+        public string ImageUrl { get; private set; }
+
+        public Guid Id { get; private set; }
 
         public void ChangeName(string name)
         {
@@ -56,9 +66,12 @@ namespace JuicyMusic.Domain
             DurationMs = durationMs;
         }
 
-        public void ToggleIsExplicit()
+        public void ChangeUrl(String url)
         {
-            IsExplicit = !IsExplicit;
+             if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
+                throw new ArgumentException("URL is not valid.");
+
+            ImageUrl = url;
         }
     }
 }
