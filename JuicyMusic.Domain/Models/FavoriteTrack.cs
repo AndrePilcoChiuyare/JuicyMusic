@@ -1,26 +1,7 @@
-namespace JuicyMusic.Domain
+namespace JuicyMusic.Domain;
+
+public class FavoriteTrack : Favorite<Track>
 {
-    public class FavoriteTrack
-    {
-        internal FavoriteTrack(User user, Track track)
-        {
-            User = user;
-            Track = track;
-        }
-
-        public static FavoriteTrack Create(User user, Track track)
-        {
-            if (user == null)
-                throw new ArgumentNullException(nameof(user));
-
-            if (track == null)
-                throw new ArgumentNullException(nameof(track));
-
-            return new FavoriteTrack(user, track);
-        }
-
-        public User User { get; private set; }
-
-        public Track Track { get; private set; }
-    }
+    private FavoriteTrack(User user, Track track) : base(user, track) { }
+    public static new FavoriteTrack Create(User user, Track track) => new FavoriteTrack(user, track);
 }

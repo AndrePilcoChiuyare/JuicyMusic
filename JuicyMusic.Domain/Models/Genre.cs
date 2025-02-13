@@ -2,20 +2,22 @@ namespace JuicyMusic.Domain
 {
     public class Genre
     {
-        internal Genre(string name)
+        internal Genre(Guid id, string name)
         {
             Name = name;
         }
 
-        public static Genre Create(string name)
+        public static Genre Create(Guid id, string name)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Genre name cannot be empty");
 
-            return new Genre(name);
+            return new Genre(id, name);
         }
 
         public string Name { get; private set; }
+
+        public Guid Id { get; private set; }
 
         public void ChangeName(string name)
         {

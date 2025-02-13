@@ -103,7 +103,7 @@ namespace JuicyMusic.Domain
              if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
                 throw new ArgumentException("URL is not valid.");
 
-            Url = url;
+            ImageUrl = url;
         }
     }
 }

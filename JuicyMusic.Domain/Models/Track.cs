@@ -24,7 +24,6 @@ namespace JuicyMusic.Domain
                 throw new ArgumentException("URL is not valid.");
 
             if (durationMs <= 0)
-                if (durationMs <= 0)
                 throw new ArgumentException("Duration (ms) cannot be empty");
 
             return new Track(id, name, isExplicit, durationMs, album, genre, artist, imageUrl);
