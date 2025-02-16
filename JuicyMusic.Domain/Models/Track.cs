@@ -4,29 +4,29 @@ namespace JuicyMusic.Domain
 {
     public class Track
     {
-        internal Track(Guid id, string name, bool isExplicit, int durationMs, Album album, Genre genre, Artist artist, string imageUrl)
+        internal Track(Guid id, string name, int durationMs, Album album, Genre genre, Artist artist, string imageUrl)
         {
             Name = name;
-            IsExplicit = isExplicit;
             DurationMs = durationMs;
             Album = album;
             Genre = genre;
             Artist = artist;
             ImageUrl = imageUrl;
+            Id = id;
         }
 
-        public static Track Create(Guid id, string name, bool isExplicit, int durationMs, Album album, Genre genre, Artist artist, string imageUrl)
+        public static Track Create(Guid id, string name, int durationMs, Album album, Genre genre, Artist artist, string imageUrl)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Track name cannot be empty.");
 
-             if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
+             if (string.IsNullOrWhiteSpace(imageUrl) || !Uri.IsWellFormedUriString(imageUrl, UriKind.RelativeOrAbsolute))
                 throw new ArgumentException("URL is not valid.");
 
             if (durationMs <= 0)
                 throw new ArgumentException("Duration (ms) cannot be empty");
 
-            return new Track(id, name, isExplicit, durationMs, album, genre, artist, imageUrl);
+            return new Track(id, name, durationMs, album, genre, artist, imageUrl);
         }
 
         public string Name { get; private set; }
@@ -65,7 +65,7 @@ namespace JuicyMusic.Domain
             DurationMs = durationMs;
         }
 
-        public void ChangeUrl(String url)
+        public void ChangeUrl(string url)
         {
              if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
                 throw new ArgumentException("URL is not valid.");

@@ -6,7 +6,6 @@ namespace JuicyMusic.Domain
         // Private constructor
         internal Album(Guid id, string name, AlbumType type, int totalTracks, DateTime releaseDate, int durationMs, Genre genre, string imageUrl, Artist artist)
         {
-            //? Do we need an Id? YES
             Name = name;
             Type = type;
             TotalTracks = totalTracks;

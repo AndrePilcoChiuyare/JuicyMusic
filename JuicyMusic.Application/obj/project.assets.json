@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Domain\\JuicyMusic.Domain.csproj",
-      "projectName": "JuicyMusic.Domain",
-      "projectPath": "C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Domain\\JuicyMusic.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Application\\JuicyMusic.Application.csproj",
+      "projectName": "JuicyMusic.Application",
+      "projectPath": "C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Application\\JuicyMusic.Application.csproj",
       "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Domain\\obj\\",
+      "outputPath": "C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config"

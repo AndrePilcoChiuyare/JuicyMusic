@@ -20,7 +20,7 @@
             if (string.IsNullOrWhiteSpace(description))
                 throw new ArgumentException("Artist description cannot be empty.");
 
-            if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
+            if (string.IsNullOrWhiteSpace(imageUrl) || !Uri.IsWellFormedUriString(imageUrl, UriKind.RelativeOrAbsolute))
                 throw new ArgumentException("URL is not valid.");
 
             return new Artist(id, name, description, genre, imageUrl);
@@ -36,7 +36,7 @@
 
         public string ImageUrl { get; private set; }
 
-        public Guid id { get; private set; }
+        public Guid Id { get; private set; }
 
         public void ChangeDescription(string description)
         {
