@@ -7,22 +7,7 @@ namespace JuicyMusic.Data.Repository;
 
 internal class TrackRepository(JuicyMusicContext db) : ITrackRepository
 {
-    public async Task<List<Track>> GetAllTracks()
-    {
-        return await db.Set<TrackEntity>()
-            .AsNoTracking()
-            .Select(entity => new Track(
-                entity.Id,
-                entity.Name,
-                entity.DurationMs,
-                typeof(Album).GetStaticField<Album>(entity.Album),
-                typeof(Genre).GetStaticField<Genre>(entity.Genre),
-                typeof(Artist).GetStaticField<Artist>(entity.Artist),
-                entity.ImageUrl
-            )).ToListAsync();
-    }
-
-    public async Task<Track?> GetTrackById(Guid id)
+       public async Task<Track?> GetTrackById(Guid id)
     {
         var entity = await db.Set<TrackEntity>()
             .AsNoTracking()
