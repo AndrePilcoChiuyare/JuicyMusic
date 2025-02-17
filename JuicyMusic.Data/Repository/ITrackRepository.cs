@@ -4,7 +4,9 @@ namespace JuicyMusic.Data.Repository;
 
 public interface ITrackRepository
 {
-    public Task<Track?> Get(Guid id);
+    public Task<List<Track>> GetAllTracks();
+
+    public Task<Track?> GetTrackById(Guid id);
 
     public Task Save(Track track);
 }
