@@ -1,108 +1,107 @@
-namespace JuicyMusic.Domain
+namespace JuicyMusic.Domain.Models;
+
+using JuicyMusic.Domain.Records;
+public class Album
 {
-    using JuicyMusic.Domain.Records;
-    public class Album
+    // Private constructor
+    internal Album(Guid id, string name, AlbumType type, int totalTracks, DateTime releaseDate, int durationMs, Genre genre, string imageUrl, Artist artist)
     {
-        // Private constructor
-        internal Album(Guid id, string name, AlbumType type, int totalTracks, DateTime releaseDate, int durationMs, Genre genre, string imageUrl, Artist artist)
-        {
-            Name = name;
-            Type = type;
-            TotalTracks = totalTracks;
-            ReleaseDate = releaseDate;
-            DurationMs = durationMs;
-            Genre = genre;
-            ImageUrl = imageUrl;
-            Artist = artist;
-            Id = id;
-        }
+        Name = name;
+        Type = type;
+        TotalTracks = totalTracks;
+        ReleaseDate = releaseDate;
+        DurationMs = durationMs;
+        Genre = genre;
+        ImageUrl = imageUrl;
+        Artist = artist;
+        Id = id;
+    }
 
-        public static Album Create(Guid id, string name, AlbumType type, int totalTracks, DateTime releaseDate, int durationMs, Genre genre, string imageUrl, Artist artist)
-        {
-            if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException("Album name cannot be empty.");
+    public static Album Create(Guid id, string name, AlbumType type, int totalTracks, DateTime releaseDate, int durationMs, Genre genre, string imageUrl, Artist artist)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("Album name cannot be empty.");
 
-            if (totalTracks <= 0)
-                throw new ArgumentException("Total tracks must be greater than zero.");
+        if (totalTracks <= 0)
+            throw new ArgumentException("Total tracks must be greater than zero.");
 
-            if (durationMs <= 0)
-                throw new ArgumentException("Duration (ms) cannot be empty");
+        if (durationMs <= 0)
+            throw new ArgumentException("Duration (ms) cannot be empty");
 
-            if (type == null)
-                throw new ArgumentNullException("Album type cannot be null");
+        if (type == null)
+            throw new ArgumentNullException("Album type cannot be null");
 
-            if (string.IsNullOrWhiteSpace(imageUrl) || !Uri.IsWellFormedUriString(imageUrl, UriKind.RelativeOrAbsolute))
-                throw new ArgumentException("URL is not valid.");
+        if (string.IsNullOrWhiteSpace(imageUrl) || !Uri.IsWellFormedUriString(imageUrl, UriKind.RelativeOrAbsolute))
+            throw new ArgumentException("URL is not valid.");
 
-            return new Album(id, name, type, totalTracks, releaseDate, durationMs, genre, imageUrl, artist);
-        }
+        return new Album(id, name, type, totalTracks, releaseDate, durationMs, genre, imageUrl, artist);
+    }
 
-        // Properties
-        public AlbumType Type { get; private set; }
+    // Properties
+    public AlbumType Type { get; private set; }
 
-        public int TotalTracks { get; private set; }
+    public int TotalTracks { get; private set; }
 
-        public string Name { get; private set; }
+    public string Name { get; private set; }
 
-        public DateTime ReleaseDate { get; private set; }
+    public DateTime ReleaseDate { get; private set; }
 
-        public int DurationMs { get; private set; }
+    public int DurationMs { get; private set; }
 
-        public Genre Genre { get; private set; }
+    public Genre Genre { get; private set; }
 
-        public string ImageUrl { get; private set; }
+    public string ImageUrl { get; private set; }
 
-        public Artist Artist { get; private set; }
+    public Artist Artist { get; private set; }
 
-        public Guid Id { get; private set; }
+    public Guid Id { get; private set; }
 
-        public void ChangeName(string name)
-        {
-            if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException("Album name cannot be empty.");
+    public void ChangeName(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("Album name cannot be empty.");
 
-            if (Name == name)
-                return;
+        if (Name == name)
+            return;
 
-            Name = name;
-        }
+        Name = name;
+    }
 
-        public void ChangeTotalTracks(int totalTracks)
-        {
-            if (totalTracks <= 0)
-                throw new ArgumentException("Total tracks must be greater than zero.");
+    public void ChangeTotalTracks(int totalTracks)
+    {
+        if (totalTracks <= 0)
+            throw new ArgumentException("Total tracks must be greater than zero.");
 
-            if (TotalTracks == totalTracks)
-                return;
+        if (TotalTracks == totalTracks)
+            return;
 
-            TotalTracks = totalTracks;
-        }
+        TotalTracks = totalTracks;
+    }
 
-        public void ChangeReleaseDate(DateTime releaseDate)
-        {
-            if (ReleaseDate == releaseDate)
-                return;
+    public void ChangeReleaseDate(DateTime releaseDate)
+    {
+        if (ReleaseDate == releaseDate)
+            return;
 
-            ReleaseDate = releaseDate;
-        }
+        ReleaseDate = releaseDate;
+    }
 
-        public void ChangeDurationMs(int durationMs)
-        {
-            if (durationMs <= 0)
-                throw new ArgumentException("Duration (ms) cannot be empty");
+    public void ChangeDurationMs(int durationMs)
+    {
+        if (durationMs <= 0)
+            throw new ArgumentException("Duration (ms) cannot be empty");
 
-            if (DurationMs == durationMs)
-                return;
+        if (DurationMs == durationMs)
+            return;
 
-            DurationMs = durationMs;
-        }
+        DurationMs = durationMs;
+    }
 
-        public void ChangeImageUrl(String url)
-        {
-             if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
-                throw new ArgumentException("URL is not valid.");
+    public void ChangeImageUrl(String url)
+    {
+            if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
+            throw new ArgumentException("URL is not valid.");
 
-            ImageUrl = url;
-        }
+        ImageUrl = url;
     }
 }

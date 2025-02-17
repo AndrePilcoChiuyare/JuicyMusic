@@ -1,50 +1,47 @@
-namespace JuicyMusic.Domain
+namespace JuicyMusic.Domain.Models;
+
+public class User
 {
-    using System.ComponentModel.DataAnnotations;
-
-    public class User
+    internal User(Guid id, string username, string imageUrl)
     {
-        internal User(Guid id, string username, string imageUrl)
-        {
-            Username = username;
-            ImageUrl = imageUrl;
-            Id = id;
-        }
+        Username = username;
+        ImageUrl = imageUrl;
+        Id = id;
+    }
 
-        public static User Create(Guid id, string username, string imageUrl)
-        {
-            if (string.IsNullOrWhiteSpace(username))
-                throw new ArgumentException("Username cannot be empty.");
+    public static User Create(Guid id, string username, string imageUrl)
+    {
+        if (string.IsNullOrWhiteSpace(username))
+            throw new ArgumentException("Username cannot be empty.");
 
-            if (string.IsNullOrWhiteSpace(imageUrl) || !Uri.IsWellFormedUriString(imageUrl, UriKind.RelativeOrAbsolute))
-                throw new ArgumentException("URL is not valid.");
+        if (string.IsNullOrWhiteSpace(imageUrl) || !Uri.IsWellFormedUriString(imageUrl, UriKind.RelativeOrAbsolute))
+            throw new ArgumentException("URL is not valid.");
 
-            return new User(id, username, imageUrl);
-        }
+        return new User(id, username, imageUrl);
+    }
 
-        public string Username { get; private set; }
+    public string Username { get; private set; }
 
-        public string ImageUrl { get; private set; }
+    public string ImageUrl { get; private set; }
 
-        public Guid Id { get; private set; }
+    public Guid Id { get; private set; }
 
-        public void ChangeName(string username)
-        {
-            if (string.IsNullOrWhiteSpace(username))
-                throw new ArgumentException("Username cannot be empty.");
+    public void ChangeName(string username)
+    {
+        if (string.IsNullOrWhiteSpace(username))
+            throw new ArgumentException("Username cannot be empty.");
 
-            if (Username == username)
-                return;
+        if (Username == username)
+            return;
 
-            Username = username;
-        }
+        Username = username;
+    }
 
-        public void ChangeUrl(String url)
-        {
-             if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
-                throw new ArgumentException("URL is not valid.");
+    public void ChangeUrl(String url)
+    {
+            if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
+            throw new ArgumentException("URL is not valid.");
 
-            ImageUrl = url;
-        }
+        ImageUrl = url;
     }
 }

@@ -1,4 +1,4 @@
-namespace JuicyMusic.Domain;
+namespace JuicyMusic.Domain.Models;
 
 public class FavoriteTrack : Favorite<Track>
 {

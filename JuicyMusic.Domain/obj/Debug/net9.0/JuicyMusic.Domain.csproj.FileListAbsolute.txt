@@ -1,0 +1,12 @@
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Domain\bin\Debug\net9.0\JuicyMusic.Domain.deps.json
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Domain\bin\Debug\net9.0\JuicyMusic.Domain.dll
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Domain\bin\Debug\net9.0\JuicyMusic.Domain.pdb
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Domain\obj\Debug\net9.0\JuicyMusic.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Domain\obj\Debug\net9.0\JuicyMusic.Domain.AssemblyInfoInputs.cache
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Domain\obj\Debug\net9.0\JuicyMusic.Domain.AssemblyInfo.cs
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Domain\obj\Debug\net9.0\JuicyMusic.Domain.csproj.CoreCompileInputs.cache
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Domain\obj\Debug\net9.0\JuicyMusic.Domain.sourcelink.json
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Domain\obj\Debug\net9.0\JuicyMusic.Domain.dll
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Domain\obj\Debug\net9.0\refint\JuicyMusic.Domain.dll
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Domain\obj\Debug\net9.0\JuicyMusic.Domain.pdb
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Domain\obj\Debug\net9.0\ref\JuicyMusic.Domain.dll

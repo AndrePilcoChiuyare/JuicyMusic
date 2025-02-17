@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "g5l93IICVuS6Y2Z3MSyTkVbVNcNMg6vesSyNc0mCE7w=",
+  "Source": "JuicyMusic.Api",
+  "BasePath": "_content/JuicyMusic.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
