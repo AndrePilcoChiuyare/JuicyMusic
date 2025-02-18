@@ -2,6 +2,6 @@ namespace JuicyMusic.Domain.Models;
 
 public class FavoriteArtist : Favorite<Artist>
 {
-    private FavoriteArtist(User user, Artist artist) : base(user, artist) { }
-    public static new FavoriteArtist Create(User user, Artist artist) => new FavoriteArtist(user, artist);
+    private FavoriteArtist(Guid id, User user, Artist artist) : base(id, user, artist) { }
+    public static new FavoriteArtist Create(Guid id, User user, Artist artist) => new FavoriteArtist(id, user, artist);
 }

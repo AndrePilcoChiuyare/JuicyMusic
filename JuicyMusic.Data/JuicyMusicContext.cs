@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore.Update;
+using JuicyMusic.Domain.Models;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace JuicyMusic.Data;
 
@@ -66,19 +68,157 @@ internal class JuicyMusicContext : DbContext, IDatabase
 
             entity
                 .Property(i => i.Genre)
-                .HasMaxLength(100)
                 .IsRequired();
 
             entity
                 .Property(i => i.Album)
-                .HasMaxLength(100)
                 .IsRequired();
 
             entity
                 .Property(i => i.Artist)
+                .IsRequired();
+
+            entity
+                .Property(i => i.ImageUrl)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity<AlbumEntity>(entity => {
+            entity
+                .ToTable("Album")
+                .HasKey(e => e.Id);
+
+            entity
+                .Property(i => i.Name)
                 .HasMaxLength(100)
                 .IsRequired();
 
+            entity
+                .Property(i => i.Type)
+                .IsRequired();
+
+            entity
+                .Property(i => i.TotalTracks)
+                .IsRequired();
+
+            entity
+                .Property(i => i.ReleaseDate)
+                .IsRequired();
+
+            entity
+                .Property(i => i.DurationMs)
+                .IsRequired();
+
+            entity
+                .Property(i => i.Genre)
+                .IsRequired();
+
+            entity
+                .Property(i => i.ImageUrl)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity<ArtistEntity>(entity => {
+            entity
+                .ToTable("Artist")
+                .HasKey(e => e.Id);
+
+            entity
+                .Property(i => i.Name)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            entity
+                .Property(i => i.Followers)
+                .IsRequired();
+
+            entity
+                .Property(i => i.Description)
+                .HasMaxLength(1000)
+                .IsRequired();
+
+            entity
+                .Property(i => i.Genre)
+                .IsRequired();
+
+            entity
+                .Property(i => i.ImageUrl)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity<FavoriteAlbumEntity>(entity => {
+            entity
+                .ToTable("FavoriteAlbum")
+                .HasKey(e => e.Id);
+
+            entity
+                .Property(i => i.Album)
+                .IsRequired();
+
+            entity
+                .Property(i => i.User)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity<FavoriteArtistEntity>(entity => {
+            entity
+                .ToTable("FavoriteArtist")
+                .HasKey(e => e.Id);
+
+            entity
+                .Property(i => i.Artist)
+                .IsRequired();
+
+            entity
+                .Property(i => i.User)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity<FavoriteTrackEntity>(entity => {
+            entity
+                .ToTable("FavoriteTrack")
+                .HasKey(e => e.Id);
+
+            entity
+                .Property(i => i.Track)
+                .IsRequired();
+
+            entity
+                .Property(i => i.User)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity<GenreEntity>(entity => {
+            entity
+                .ToTable("Genre")
+                .HasKey(e => e.Id);
+
+            entity
+                .Property(i => i.Name)
+                .HasMaxLength(50)
+                .IsRequired();
+        });
+
+        modelBuilder.Entity<TrackEntity>(entity => {
+            entity
+                .ToTable("Track")
+                .HasKey(e => e.Id);
+            entity
+                .Property(i => i.Name)
+                .HasMaxLength(50)
+                .IsRequired();
+            entity
+                .Property(i => i.DurationMs)
+                .IsRequired();
+            entity
+                .Property(i => i.Genre)
+                .IsRequired();
+            entity
+                .Property(i => i.Album)
+                .IsRequired();
+            entity
+                .Property(i => i.Artist)
+                .IsRequired();
             entity
                 .Property(i => i.ImageUrl)
                 .IsRequired();
