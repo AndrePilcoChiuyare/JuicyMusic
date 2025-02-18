@@ -82,3 +82,6 @@ C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Api\bin\Debug\net9.0\Mi
 C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Api\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Api\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Api\obj\Debug\net9.0\JuicyMusic.Api.dll
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Api\obj\Debug\net9.0\refint\JuicyMusic.Api.dll
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Api\obj\Debug\net9.0\JuicyMusic.Api.pdb

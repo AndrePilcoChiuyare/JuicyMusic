@@ -18,3 +18,12 @@ C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Data\obj\Debug\net9.0\r
 C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Data\obj\Debug\net9.0\JuicyMusic.Data.pdb
 C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Data\obj\Debug\net9.0\JuicyMusic.Data.genruntimeconfig.cache
 C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Data\obj\Debug\net9.0\ref\JuicyMusic.Data.dll
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Data\obj\Debug\net9.0\JuicyMusic.Data.csproj.AssemblyReference.cache
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Data\obj\Debug\net9.0\JuicyMusic.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Data\obj\Debug\net9.0\JuicyMusic.Data.AssemblyInfoInputs.cache
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Data\obj\Debug\net9.0\JuicyMusic.Data.AssemblyInfo.cs
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Data\obj\Debug\net9.0\JuicyMusic.Data.csproj.CoreCompileInputs.cache
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Data\obj\Debug\net9.0\JuicyMusic.Data.sourcelink.json
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Data\obj\Debug\net9.0\JuicyMusic.Data.dll
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Data\obj\Debug\net9.0\refint\JuicyMusic.Data.dll
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Data\obj\Debug\net9.0\JuicyMusic.Data.pdb

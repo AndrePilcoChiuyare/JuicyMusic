@@ -42,9 +42,9 @@ internal class TrackRepository(JuicyMusicContext db) : ITrackRepository
         }
 
         entity.Name = track.Name;
-        entity.Album = track.Album.Name;
-        entity.Genre = track.Genre.Name;
-        entity.Artist = track.Artist.Name;
+        entity.AlbumId = track.Album.Id;
+        entity.GenreId = track.Genre.Id;
+        entity.ArtistId = track.Artist.Id;
         entity.ImageUrl = track.ImageUrl;
 
         await db.SaveChangesAsync();
