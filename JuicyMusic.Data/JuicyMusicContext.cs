@@ -52,9 +52,10 @@ internal class JuicyMusicContext : DbContext, IDatabase
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<TrackEntity>(entity =>{
+        modelBuilder.Entity<TrackEntity>(entity =>
+        {
             entity
-                .ToTable("Track")
+                .ToTable("Tracks")
                 .HasKey(e => e.Id);
 
             entity
@@ -67,25 +68,33 @@ internal class JuicyMusicContext : DbContext, IDatabase
                 .IsRequired();
 
             entity
-                .Property(i => i.Genre)
-                .IsRequired();
-
-            entity
-                .Property(i => i.Album)
-                .IsRequired();
-
-            entity
-                .Property(i => i.Artist)
-                .IsRequired();
-
-            entity
                 .Property(i => i.ImageUrl)
+                .IsRequired();
+
+            // Foreign Key Relationships
+            entity
+                .HasOne(i => i.Genre)
+                .WithMany(i => i.Tracks)
+                .HasForeignKey(i => i.GenreId)
+                .IsRequired();
+
+            entity
+                .HasOne(i => i.Album)
+                .WithMany(i => i.Tracks)
+                .HasForeignKey(i => i.AlbumId)
+                .IsRequired();
+
+            entity
+                .HasOne(i => i.Artist)
+                .WithMany(i => i.Tracks)
+                .HasForeignKey(i => i.ArtistId)
                 .IsRequired();
         });
 
-        modelBuilder.Entity<AlbumEntity>(entity => {
+        modelBuilder.Entity<AlbumEntity>(entity =>
+        {
             entity
-                .ToTable("Album")
+                .ToTable("Albums")
                 .HasKey(e => e.Id);
 
             entity
@@ -94,7 +103,7 @@ internal class JuicyMusicContext : DbContext, IDatabase
                 .IsRequired();
 
             entity
-                .Property(i => i.Type)
+                .Property(i => i.TypeId)
                 .IsRequired();
 
             entity
@@ -110,17 +119,27 @@ internal class JuicyMusicContext : DbContext, IDatabase
                 .IsRequired();
 
             entity
-                .Property(i => i.Genre)
-                .IsRequired();
-
-            entity
                 .Property(i => i.ImageUrl)
                 .IsRequired();
+
+            // Foreign Key for Genre
+            entity
+                .HasOne(i => i.Genre)
+                .WithMany(i => i.Albums)
+                .HasForeignKey(i => i.GenreId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            entity.HasOne(i => i.Artist)
+                .WithMany(i => i.Albums)
+                .HasForeignKey(i => i.ArtistId)
+                .OnDelete(DeleteBehavior.Cascade);
+
         });
 
-        modelBuilder.Entity<ArtistEntity>(entity => {
+        modelBuilder.Entity<ArtistEntity>(entity =>
+        {
             entity
-                .ToTable("Artist")
+                .ToTable("Artists")
                 .HasKey(e => e.Id);
 
             entity
@@ -138,59 +157,77 @@ internal class JuicyMusicContext : DbContext, IDatabase
                 .IsRequired();
 
             entity
-                .Property(i => i.Genre)
-                .IsRequired();
-
-            entity
                 .Property(i => i.ImageUrl)
                 .IsRequired();
         });
 
-        modelBuilder.Entity<FavoriteAlbumEntity>(entity => {
+        modelBuilder.Entity<FavoriteAlbumEntity>(entity =>
+        {
             entity
-                .ToTable("FavoriteAlbum")
+                .ToTable("FavoriteAlbums")
                 .HasKey(e => e.Id);
 
+            // Foreign Key for Album
             entity
-                .Property(i => i.Album)
-                .IsRequired();
+                .HasOne(i => i.Album)
+                .WithMany(i => i.FavoriteAlbums)
+                .HasForeignKey(i => i.AlbumId)
+                .OnDelete(DeleteBehavior.Cascade);
 
+            // Foreign Key for User
             entity
-                .Property(i => i.User)
-                .IsRequired();
+                .HasOne(i => i.User)
+                .WithMany(i => i.FavoriteAlbums)
+                .HasForeignKey(i => i.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
-        modelBuilder.Entity<FavoriteArtistEntity>(entity => {
+        modelBuilder.Entity<FavoriteArtistEntity>(entity =>
+        {
             entity
-                .ToTable("FavoriteArtist")
+                .ToTable("FavoriteArtists")
                 .HasKey(e => e.Id);
 
+            // Foreign Key for Artist
             entity
-                .Property(i => i.Artist)
-                .IsRequired();
+                .HasOne(i => i.Artist)
+                .WithMany(i => i.FavoriteArtists)
+                .HasForeignKey(i => i.ArtistId)
+                .OnDelete(DeleteBehavior.Cascade);
 
+            // Foreign Key for User
             entity
-                .Property(i => i.User)
-                .IsRequired();
+                .HasOne(i => i.User)
+                .WithMany(i => i.FavoriteArtists)
+                .HasForeignKey(i => i.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
-        modelBuilder.Entity<FavoriteTrackEntity>(entity => {
+        modelBuilder.Entity<FavoriteTrackEntity>(entity =>
+        {
             entity
-                .ToTable("FavoriteTrack")
+                .ToTable("FavoriteTracks")
                 .HasKey(e => e.Id);
 
+            // Foreign Key for Track
             entity
-                .Property(i => i.Track)
-                .IsRequired();
+                .HasOne(i => i.Track)
+                .WithMany(i => i.FavoriteTracks)
+                .HasForeignKey(i => i.TrackId)
+                .OnDelete(DeleteBehavior.Cascade);
 
+            // Foreign Key for User
             entity
-                .Property(i => i.User)
-                .IsRequired();
+                .HasOne(i => i.User)
+                .WithMany(i => i.FavoriteTracks)
+                .HasForeignKey(i => i.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
-        modelBuilder.Entity<GenreEntity>(entity => {
+        modelBuilder.Entity<GenreEntity>(entity =>
+        {
             entity
-                .ToTable("Genre")
+                .ToTable("Genres")
                 .HasKey(e => e.Id);
 
             entity
@@ -199,9 +236,10 @@ internal class JuicyMusicContext : DbContext, IDatabase
                 .IsRequired();
         });
 
-       modelBuilder.Entity<UserEntity>(entity => {
+        modelBuilder.Entity<UserEntity>(entity =>
+        {
             entity
-                .ToTable("User")
+                .ToTable("Users")
                 .HasKey(e => e.Id);
 
             entity
