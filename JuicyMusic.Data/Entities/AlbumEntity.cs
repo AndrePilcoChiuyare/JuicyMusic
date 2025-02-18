@@ -25,6 +25,6 @@ internal class AlbumEntity
 
     public string ImageUrl { get; set; } = string.Empty;
 
-    public ICollection<TrackEntity> Tracks { get; set; } = new List<TrackEntity>();
-    public ICollection<FavoriteAlbumEntity> FavoriteAlbums { get; set; } = new List<FavoriteAlbumEntity>();
+    public List<TrackEntity> Tracks { get; set; } = new();
+    public List<FavoriteAlbumEntity> FavoriteAlbums { get; set; } = new();
 }

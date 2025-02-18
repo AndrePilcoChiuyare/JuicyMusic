@@ -16,9 +16,9 @@ internal class ArtistEntity
 
     public string ImageUrl { get; set; }
 
-    public ICollection<TrackEntity> Tracks { get; set; } = new List<TrackEntity>();
+    public List<TrackEntity> Tracks { get; set; } = new();
 
-    public ICollection<AlbumEntity> Albums { get; set; } = new List<AlbumEntity>();
+    public List<AlbumEntity> Albums { get; set; } = new();
     
-    public ICollection<FavoriteArtistEntity> FavoriteArtists { get; set; } = new List<FavoriteArtistEntity>();
+    public List<FavoriteArtistEntity> FavoriteArtists { get; set; } = new();
 }

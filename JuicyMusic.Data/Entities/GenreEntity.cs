@@ -6,6 +6,6 @@ internal class GenreEntity
 
     public string Name { get; set; }
 
-    public ICollection<TrackEntity> Tracks { get; set; } = new List<TrackEntity>();
-    public ICollection<AlbumEntity> Albums { get; set; } = new List<AlbumEntity>();
+    public List<TrackEntity> Tracks { get; set; } = new();
+    public List<AlbumEntity> Albums { get; set; } = new();
 }

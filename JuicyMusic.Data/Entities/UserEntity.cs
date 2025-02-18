@@ -8,9 +8,9 @@ internal class UserEntity
 
     public string ImageUrl { get; set; }
 
-    public ICollection<FavoriteAlbumEntity> FavoriteAlbums { get; set; } = new List<FavoriteAlbumEntity>();
+    public List<FavoriteAlbumEntity> FavoriteAlbums { get; set; } = new();
 
-    public ICollection<FavoriteArtistEntity> FavoriteArtists { get; set; } = new List<FavoriteArtistEntity>();
+    public List<FavoriteArtistEntity> FavoriteArtists { get; set; } = new();
 
-    public ICollection<FavoriteTrackEntity> FavoriteTracks { get; set; } = new List<FavoriteTrackEntity>();
+    public List<FavoriteTrackEntity> FavoriteTracks { get; set; } = new();
 }

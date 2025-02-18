@@ -20,5 +20,5 @@ internal class TrackEntity
 
     public string ImageUrl { get; set; } = string.Empty;
 
-    public ICollection<FavoriteTrackEntity> FavoriteTracks { get; set; } = new List<FavoriteTrackEntity>();
+    public List<FavoriteTrackEntity> FavoriteTracks { get; set; } = new();
 }
