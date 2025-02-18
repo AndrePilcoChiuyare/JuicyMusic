@@ -199,26 +199,16 @@ internal class JuicyMusicContext : DbContext, IDatabase
                 .IsRequired();
         });
 
-        modelBuilder.Entity<TrackEntity>(entity => {
+       modelBuilder.Entity<UserEntity>(entity => {
             entity
-                .ToTable("Track")
+                .ToTable("User")
                 .HasKey(e => e.Id);
+
             entity
-                .Property(i => i.Name)
+                .Property(i => i.Username)
                 .HasMaxLength(50)
                 .IsRequired();
-            entity
-                .Property(i => i.DurationMs)
-                .IsRequired();
-            entity
-                .Property(i => i.Genre)
-                .IsRequired();
-            entity
-                .Property(i => i.Album)
-                .IsRequired();
-            entity
-                .Property(i => i.Artist)
-                .IsRequired();
+
             entity
                 .Property(i => i.ImageUrl)
                 .IsRequired();
