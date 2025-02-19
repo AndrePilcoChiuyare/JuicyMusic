@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JuicyMusic.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eedf91878e1ec7d1176575e7fd41df55d4352608")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48592acad7425aa1880576d084c244fe5080cec1")]
 [assembly: System.Reflection.AssemblyProductAttribute("JuicyMusic.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JuicyMusic.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
