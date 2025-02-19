@@ -4,15 +4,21 @@ internal class TrackEntity
 {
     public Guid Id { get; set; }
 
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
 
     public int DurationMs { get; set; }
 
-    public string Genre { get; set; }
+    // Foreign Keys
+    public Guid GenreId { get; set; }
+    public GenreEntity Genre { get; set; }
 
-    public string Album { get; set; }
+    public Guid AlbumId { get; set; }
+    public AlbumEntity Album { get; set; }
 
-    public string Artist { get; set; }
+    public Guid ArtistId { get; set; }
+    public ArtistEntity Artist { get; set; }
 
-    public string ImageUrl { get; set; }
+    public string ImageUrl { get; set; } = string.Empty;
+
+    public List<FavoriteTrackEntity> FavoriteTracks { get; set; } = new();
 }

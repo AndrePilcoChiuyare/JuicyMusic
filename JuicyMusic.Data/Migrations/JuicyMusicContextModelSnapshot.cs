@@ -23,11 +23,13 @@ namespace JuicyMusic.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("ArtistId")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("DurationMs")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Genre")
-                        .IsRequired()
+                    b.Property<Guid>("GenreId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ImageUrl")
@@ -45,13 +47,16 @@ namespace JuicyMusic.Data.Migrations
                     b.Property<int>("TotalTracks")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("TypeId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Album", (string)null);
+                    b.HasIndex("ArtistId");
+
+                    b.HasIndex("GenreId");
+
+                    b.ToTable("Albums", (string)null);
                 });
 
             modelBuilder.Entity("JuicyMusic.Data.Entities.ArtistEntity", b =>
@@ -68,8 +73,7 @@ namespace JuicyMusic.Data.Migrations
                     b.Property<int>("Followers")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Genre")
-                        .IsRequired()
+                    b.Property<Guid>("GenreId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ImageUrl")
@@ -83,7 +87,9 @@ namespace JuicyMusic.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Artist", (string)null);
+                    b.HasIndex("GenreId");
+
+                    b.ToTable("Artists", (string)null);
                 });
 
             modelBuilder.Entity("JuicyMusic.Data.Entities.FavoriteAlbumEntity", b =>
@@ -92,17 +98,19 @@ namespace JuicyMusic.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Album")
-                        .IsRequired()
+                    b.Property<Guid>("AlbumId")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("User")
-                        .IsRequired()
+                    b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("FavoriteAlbum", (string)null);
+                    b.HasIndex("AlbumId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("FavoriteAlbums", (string)null);
                 });
 
             modelBuilder.Entity("JuicyMusic.Data.Entities.FavoriteArtistEntity", b =>
@@ -111,17 +119,19 @@ namespace JuicyMusic.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Artist")
-                        .IsRequired()
+                    b.Property<Guid>("ArtistId")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("User")
-                        .IsRequired()
+                    b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("FavoriteArtist", (string)null);
+                    b.HasIndex("ArtistId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("FavoriteArtists", (string)null);
                 });
 
             modelBuilder.Entity("JuicyMusic.Data.Entities.FavoriteTrackEntity", b =>
@@ -130,17 +140,19 @@ namespace JuicyMusic.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Track")
-                        .IsRequired()
+                    b.Property<Guid>("TrackId")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("User")
-                        .IsRequired()
+                    b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("FavoriteTrack", (string)null);
+                    b.HasIndex("TrackId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("FavoriteTracks", (string)null);
                 });
 
             modelBuilder.Entity("JuicyMusic.Data.Entities.GenreEntity", b =>
@@ -156,7 +168,7 @@ namespace JuicyMusic.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genre", (string)null);
+                    b.ToTable("Genres", (string)null);
                 });
 
             modelBuilder.Entity("JuicyMusic.Data.Entities.TrackEntity", b =>
@@ -165,19 +177,16 @@ namespace JuicyMusic.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Album")
-                        .IsRequired()
+                    b.Property<Guid>("AlbumId")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Artist")
-                        .IsRequired()
+                    b.Property<Guid>("ArtistId")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("DurationMs")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Genre")
-                        .IsRequired()
+                    b.Property<Guid>("GenreId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ImageUrl")
@@ -191,7 +200,13 @@ namespace JuicyMusic.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Track", (string)null);
+                    b.HasIndex("AlbumId");
+
+                    b.HasIndex("ArtistId");
+
+                    b.HasIndex("GenreId");
+
+                    b.ToTable("Tracks", (string)null);
                 });
 
             modelBuilder.Entity("JuicyMusic.Data.Entities.UserEntity", b =>
@@ -211,7 +226,158 @@ namespace JuicyMusic.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User", (string)null);
+                    b.ToTable("Users", (string)null);
+                });
+
+            modelBuilder.Entity("JuicyMusic.Data.Entities.AlbumEntity", b =>
+                {
+                    b.HasOne("JuicyMusic.Data.Entities.ArtistEntity", "Artist")
+                        .WithMany("Albums")
+                        .HasForeignKey("ArtistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JuicyMusic.Data.Entities.GenreEntity", "Genre")
+                        .WithMany("Albums")
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Artist");
+
+                    b.Navigation("Genre");
+                });
+
+            modelBuilder.Entity("JuicyMusic.Data.Entities.ArtistEntity", b =>
+                {
+                    b.HasOne("JuicyMusic.Data.Entities.GenreEntity", "Genre")
+                        .WithMany()
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Genre");
+                });
+
+            modelBuilder.Entity("JuicyMusic.Data.Entities.FavoriteAlbumEntity", b =>
+                {
+                    b.HasOne("JuicyMusic.Data.Entities.AlbumEntity", "Album")
+                        .WithMany("FavoriteAlbums")
+                        .HasForeignKey("AlbumId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JuicyMusic.Data.Entities.UserEntity", "User")
+                        .WithMany("FavoriteAlbums")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Album");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("JuicyMusic.Data.Entities.FavoriteArtistEntity", b =>
+                {
+                    b.HasOne("JuicyMusic.Data.Entities.ArtistEntity", "Artist")
+                        .WithMany("FavoriteArtists")
+                        .HasForeignKey("ArtistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JuicyMusic.Data.Entities.UserEntity", "User")
+                        .WithMany("FavoriteArtists")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Artist");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("JuicyMusic.Data.Entities.FavoriteTrackEntity", b =>
+                {
+                    b.HasOne("JuicyMusic.Data.Entities.TrackEntity", "Track")
+                        .WithMany("FavoriteTracks")
+                        .HasForeignKey("TrackId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JuicyMusic.Data.Entities.UserEntity", "User")
+                        .WithMany("FavoriteTracks")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Track");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("JuicyMusic.Data.Entities.TrackEntity", b =>
+                {
+                    b.HasOne("JuicyMusic.Data.Entities.AlbumEntity", "Album")
+                        .WithMany("Tracks")
+                        .HasForeignKey("AlbumId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JuicyMusic.Data.Entities.ArtistEntity", "Artist")
+                        .WithMany("Tracks")
+                        .HasForeignKey("ArtistId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JuicyMusic.Data.Entities.GenreEntity", "Genre")
+                        .WithMany("Tracks")
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Album");
+
+                    b.Navigation("Artist");
+
+                    b.Navigation("Genre");
+                });
+
+            modelBuilder.Entity("JuicyMusic.Data.Entities.AlbumEntity", b =>
+                {
+                    b.Navigation("FavoriteAlbums");
+
+                    b.Navigation("Tracks");
+                });
+
+            modelBuilder.Entity("JuicyMusic.Data.Entities.ArtistEntity", b =>
+                {
+                    b.Navigation("Albums");
+
+                    b.Navigation("FavoriteArtists");
+
+                    b.Navigation("Tracks");
+                });
+
+            modelBuilder.Entity("JuicyMusic.Data.Entities.GenreEntity", b =>
+                {
+                    b.Navigation("Albums");
+
+                    b.Navigation("Tracks");
+                });
+
+            modelBuilder.Entity("JuicyMusic.Data.Entities.TrackEntity", b =>
+                {
+                    b.Navigation("FavoriteTracks");
+                });
+
+            modelBuilder.Entity("JuicyMusic.Data.Entities.UserEntity", b =>
+                {
+                    b.Navigation("FavoriteAlbums");
+
+                    b.Navigation("FavoriteArtists");
+
+                    b.Navigation("FavoriteTracks");
                 });
 #pragma warning restore 612, 618
         }
