@@ -12,7 +12,7 @@ internal class ListAlbumsDataQuery(JuicyMusicContext db) : IListAlbumsDataQuery
         {
             Id = i.Id,
             Name = i.Name,
-            Type = AlbumType.GetById(i.TypeId),
+            Type = AlbumType.GetById(i.TypeId).Name,
             TotalTracks = i.TotalTracks,
             ReleaseDate = i.ReleaseDate,
             DurationMs = i.DurationMs,

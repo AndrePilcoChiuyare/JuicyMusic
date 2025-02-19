@@ -7,5 +7,5 @@ public record AlbumType(int Id, string Name)
 
     private static readonly List<AlbumType> AllTypes = new() { Single, Album };
 
-    public static string GetById(int id) => AllTypes.FirstOrDefault(at => at.Id == id)?.Name ?? "Unknown";
+    public static AlbumType? GetById(int id) => AllTypes.FirstOrDefault(at => at.Id == id);
 }
