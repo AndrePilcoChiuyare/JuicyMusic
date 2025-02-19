@@ -9,6 +9,7 @@ internal class ListTracksDataQuery(JuicyMusicContext db) : IListTracksDataQuery
     public IQueryable<ListTracksDataQueryResult> Execute()
         => db.Set<TrackEntity>().AsNoTracking().Select(i => new ListTracksDataQueryResult
         {
+            Id = i.Id,
             Name = i.Name,
             DurationMs = i.DurationMs,
             GenreName = i.Genre.Name,

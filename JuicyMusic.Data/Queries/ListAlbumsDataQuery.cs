@@ -5,11 +5,12 @@ using JuicyMusic.Domain.Records;
 
 namespace JuicyMusic.Data.Queries;
 
-internal class ListAlbumsDataQuery(JuicyMusicContext db) : IListTracksDataQuery
+internal class ListAlbumsDataQuery(JuicyMusicContext db) : IListAlbumsDataQuery
 {
     public IQueryable<ListAlbumsDataQueryResult> Execute()
         => db.Set<AlbumEntity>().AsNoTracking().Select(i => new ListAlbumsDataQueryResult
         {
+            Id = i.Id,
             Name = i.Name,
             Type = AlbumType.GetById(i.TypeId),
             TotalTracks = i.TotalTracks,
