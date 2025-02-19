@@ -23,6 +23,13 @@ internal class JuicyMusicContext : DbContext, IDatabase
     }
 
     public DbSet<TrackEntity> Tracks { get; set; }
+    public DbSet<AlbumEntity> Albums { get; set; }
+    public DbSet<ArtistEntity> Artists { get; set; }
+    public DbSet<FavoriteAlbumEntity> FavoriteAlbums { get; set; }
+    public DbSet<FavoriteArtistEntity> FavoriteArtists { get; set; }
+    public DbSet<FavoriteTrackEntity> FavoriteTracks { get; set; }
+    public DbSet<GenreEntity> Genres { get; set; }
+    public DbSet<UserEntity> Users { get; set; }
 
     public Expression<Func<QueryContext, TResult>> CompileQueryExpression<TResult>(Expression query, bool async, IReadOnlySet<string> nonNullableReferenceTypeParameters)
     {
