@@ -4,7 +4,7 @@ using JuicyMusic.Data.Entities;
 
 namespace JuicyMusic.Data.Queries;
 
-internal class ListFavoriteArtistsDataQuery(JuicyMusicContext db) : IListFavoriteArtistsDataQuery
+internal class ListGenresDataQuery(JuicyMusicContext db) : IListGenresDataQuery
 {
     public IQueryable<ListGenresDataQueryResult> Execute()
         => db.Set<GenreEntity>().AsNoTracking().Select(i => new ListGenresDataQueryResult
