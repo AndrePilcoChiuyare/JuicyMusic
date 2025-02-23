@@ -21,14 +21,14 @@ internal class TrackRepository(JuicyMusicContext db) : ITrackRepository
         if (entity is null || entity.Genre is null || entity.Artist is null || entity.Album is null)
             return null;
 
-        var albumGenre = Genre.Create(entity.GenreId, entity.Genre.Name);
-        var artistGenre = Genre.Create(entity.Artist.GenreId, entity.Artist.Genre.Name);
+        var albumGenre = new Genre(entity.GenreId, entity.Genre.Name);
+        var artistGenre = new Genre(entity.Artist.GenreId, entity.Artist.Genre.Name);
 
-        var artist = Artist.Create(entity.ArtistId, entity.Artist.Name, entity.Artist.Description, artistGenre, entity.Artist.ImageUrl);
+        var artist = new Artist(entity.ArtistId, entity.Artist.Name, entity.Artist.Description, artistGenre, entity.Artist.ImageUrl);
         var albumType = AlbumType.GetById(entity.Album.TypeId) ?? throw new InvalidOperationException("Invalid album type ID");
-        var album = Album.Create(entity.AlbumId, entity.Album.Name, albumType, entity.Album.TotalTracks, entity.Album.ReleaseDate, entity.Album.DurationMs, albumGenre, entity.Album.ImageUrl, artist);
+        var album = new Album(entity.AlbumId, entity.Album.Name, albumType, entity.Album.TotalTracks, entity.Album.ReleaseDate, entity.Album.DurationMs, albumGenre, entity.Album.ImageUrl, artist);
 
-        return Track.Create(
+        return new Track(
             entity.Id,
             entity.Name,
             entity.DurationMs,
