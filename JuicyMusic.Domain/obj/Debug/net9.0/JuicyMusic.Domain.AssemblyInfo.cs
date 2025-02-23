@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JuicyMusic.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b7f323eb6ddd9ca3c72073de540aba9aae7f6d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+255e56a8c231805e42377f0ee162a468aeafd7fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("JuicyMusic.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JuicyMusic.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
