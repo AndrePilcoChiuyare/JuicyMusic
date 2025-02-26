@@ -1,8 +1,8 @@
 using JuicyMusic.Data.Entities;
 using JuicyMusic.Domain.Models;
-using JuicyMusic.Domain.Extensions;
 using JuicyMusic.Domain.Records;
 using Microsoft.EntityFrameworkCore;
+using JuicyMusic.Application.Data.Repository;
 
 namespace JuicyMusic.Data.Repository;
 

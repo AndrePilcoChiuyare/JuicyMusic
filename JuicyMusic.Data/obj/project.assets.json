@@ -3208,19 +3208,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andre\\.nuget\\packages\\": {}
+    "C:\\Users\\Andre\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Data\\JuicyMusic.Data.csproj",
+      "projectUniqueName": "C:\\Users\\Andre\\Documents\\Bootcamp\\api-first-design\\JuicyMusic\\JuicyMusic.Data\\JuicyMusic.Data.csproj",
       "projectName": "JuicyMusic.Data",
-      "projectPath": "C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Data\\JuicyMusic.Data.csproj",
-      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Data\\obj\\",
+      "projectPath": "C:\\Users\\Andre\\Documents\\Bootcamp\\api-first-design\\JuicyMusic\\JuicyMusic.Data\\JuicyMusic.Data.csproj",
+      "packagesPath": "C:\\Users\\Andre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Andre\\Documents\\Bootcamp\\api-first-design\\JuicyMusic\\JuicyMusic.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Andre\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -3232,11 +3232,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Application\\JuicyMusic.Application.csproj": {
-              "projectPath": "C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Application\\JuicyMusic.Application.csproj"
+            "C:\\Users\\Andre\\Documents\\Bootcamp\\api-first-design\\JuicyMusic\\JuicyMusic.Application\\JuicyMusic.Application.csproj": {
+              "projectPath": "C:\\Users\\Andre\\Documents\\Bootcamp\\api-first-design\\JuicyMusic\\JuicyMusic.Application\\JuicyMusic.Application.csproj"
             },
-            "C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Domain\\JuicyMusic.Domain.csproj": {
-              "projectPath": "C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Domain\\JuicyMusic.Domain.csproj"
+            "C:\\Users\\Andre\\Documents\\Bootcamp\\api-first-design\\JuicyMusic\\JuicyMusic.Domain\\JuicyMusic.Domain.csproj": {
+              "projectPath": "C:\\Users\\Andre\\Documents\\Bootcamp\\api-first-design\\JuicyMusic\\JuicyMusic.Domain\\JuicyMusic.Domain.csproj"
             }
           }
         }
@@ -3251,7 +3251,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -3290,7 +3290,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
