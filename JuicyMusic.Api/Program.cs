@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.OData;
 using Microsoft.AspNetCore.OData.NewtonsoftJson;
 using JuicyMusic.Api.Configuration;
 using JuicyMusic.Data.Extensions;
+using JuicyMusic.Application.Data.Queries.ListTracks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,8 @@ builder.Services.AddSwaggerGen();
 
 // Week 3: AddDataServices to add support for the data layer
 builder.Services.AddDataServices();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<ListTracksQuery>());
 
 var app = builder.Build();
 

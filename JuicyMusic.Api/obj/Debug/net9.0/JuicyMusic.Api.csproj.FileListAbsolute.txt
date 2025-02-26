@@ -176,3 +176,5 @@ C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Api\obj
 C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Api\obj\Debug\net9.0\JuicyMus.C0A4749A.Up2Date
 C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Api\obj\Debug\net9.0\JuicyMusic.Api.genruntimeconfig.cache
 C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Api\obj\Debug\net9.0\ref\JuicyMusic.Api.dll
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Api\bin\Debug\net9.0\MediatR.dll
+C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Api\bin\Debug\net9.0\MediatR.Contracts.dll

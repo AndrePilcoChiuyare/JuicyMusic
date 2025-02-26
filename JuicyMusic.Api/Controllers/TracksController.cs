@@ -17,7 +17,6 @@ public class TracksController(IMediator mediator) : ControllerBase
     /// </summary>
     /// <returns>The collection of found <see cref="TrackDto"/> records.</returns>
     [HttpGet]
-    // TODO
     public Task<IReadOnlyCollection<TrackDto>> GetTracks()
-        => mediator.Send(ListTracksDataQueryResult());
+        => mediator.Send(new ListTracksQuery());
 }
