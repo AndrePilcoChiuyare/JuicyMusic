@@ -3,7 +3,7 @@ using JuicyMusic.Application.Models.Dto;
 
 namespace JuicyMusic.Application.Commands.Tracks;
 
-public class CreateTrackCommand : IRequest<TrackDto>
+public record CreateTrackCommand : IRequest<TrackDto>
 {
     public string Name { get; set; } = default!;
     public int DurationMs { get; set; }
