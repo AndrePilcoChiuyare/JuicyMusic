@@ -3,6 +3,7 @@ public class Genre
 {
     internal Genre(Guid id, string name)
     {
+        Id = id;
         Name = name;
     }
 

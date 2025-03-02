@@ -1,7 +1,7 @@
 ﻿namespace JuicyMusic.Domain.Models;
 public class Artist
 {
-    internal Artist(Guid id, string name,string description, Genre genre, string imageUrl)
+    internal Artist(Guid id, string name, string description, Genre genre, string imageUrl)
     {
         Name = name;
         Followers = 0;

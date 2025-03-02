@@ -1,6 +1,6 @@
 using JuicyMusic.Domain.Models;
 
-namespace JuicyMusic.Application.Data.Repository;
+namespace JuicyMusic.Application.Data.Repository.TrackRepository;
 
 public interface ITrackRepository
 {

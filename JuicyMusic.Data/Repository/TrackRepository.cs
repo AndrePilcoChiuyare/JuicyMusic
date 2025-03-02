@@ -2,9 +2,9 @@ using JuicyMusic.Data.Entities;
 using JuicyMusic.Domain.Models;
 using JuicyMusic.Domain.Records;
 using Microsoft.EntityFrameworkCore;
-using JuicyMusic.Application.Data.Repository;
+using JuicyMusic.Application.Data.Repository.TrackRepository;
 
-namespace JuicyMusic.Data.Repository;
+namespace JuicyMusic.Data.Repository.TrackRepository;
 
 internal class TrackRepository(JuicyMusicContext db) : ITrackRepository
 {
