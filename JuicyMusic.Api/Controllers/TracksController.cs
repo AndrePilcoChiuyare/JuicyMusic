@@ -9,6 +9,6 @@ namespace JuicyMusic.Api.Controllers;
 public class TracksController(IMediator mediator) : ControllerBase
 {
     [HttpPost]
-    public Task<TrackDto> CreateTrack([FromBody] CreateTrackCommand command)
+    public Task<TrackResponseDto> CreateTrack([FromBody] CreateTrackCommand command)
         => mediator.Send(command);
 }

@@ -11,7 +11,7 @@ public static class ODataConfiguration
         var builder = new ODataConventionModelBuilder();
 
         EntitySetConfiguration<ListTracksDataQueryResult> formDetailsSet = builder
-            .EntitySet<ListTracksDataQueryResult>("forms");
+            .EntitySet<ListTracksDataQueryResult>("tracks");
         formDetailsSet.EntityType.HasKey(r => r.Id);
 
         return builder.GetEdmModel();

@@ -12,9 +12,9 @@ internal class CreateTrackCommandHandler(
     ITrackRepository trackRepository,
     IAlbumRepository albumRepository,
     IArtistRepository artistRepository,
-    IGenreRepository genreRepository) : IRequestHandler<CreateTrackCommand, TrackDto>
+    IGenreRepository genreRepository) : IRequestHandler<CreateTrackCommand, TrackResponseDto>
 {
-    public async Task<TrackDto> Handle(CreateTrackCommand command, CancellationToken cancellationToken)
+    public async Task<TrackResponseDto> Handle(CreateTrackCommand command, CancellationToken cancellationToken)
     {
         // query the genre, album and artist based on the ids
         var genre = await genreRepository.GetGenreById(command.GenreId);
@@ -39,7 +39,7 @@ internal class CreateTrackCommandHandler(
         await trackRepository.Save(track);
 
         // return the track dto
-        return new TrackDto
+        return new TrackResponseDto
         {
             Id = track.Id,
             Name = track.Name,

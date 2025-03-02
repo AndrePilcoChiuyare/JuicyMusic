@@ -3,7 +3,7 @@ using JuicyMusic.Application.Models.Dto;
 
 namespace JuicyMusic.Application.Data.Queries.ListTracks;
 
-public class ListTracksQueryHandler : IRequestHandler<ListTracksQuery, IQueryable<TrackDto>>
+public class ListTracksQueryHandler : IRequestHandler<ListTracksQuery, IQueryable<TrackResponseDto>>
 {
     private readonly IListTracksDataQuery _query;
 
@@ -12,10 +12,10 @@ public class ListTracksQueryHandler : IRequestHandler<ListTracksQuery, IQueryabl
         _query = query;
     }
 
-    public Task<IQueryable<TrackDto>> Handle(ListTracksQuery request, CancellationToken cancellationToken)
+    public Task<IQueryable<TrackResponseDto>> Handle(ListTracksQuery request, CancellationToken cancellationToken)
     {
         var results = _query.Execute()
-            .Select(t => new TrackDto
+            .Select(t => new TrackResponseDto
             {
                 Id = t.Id,
                 Name = t.Name,

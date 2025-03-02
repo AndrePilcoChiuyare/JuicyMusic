@@ -1,6 +1,6 @@
 namespace JuicyMusic.Application.Models.Dto;
 
-public class TrackDto
+public class TrackResponseDto
 {
     public Guid Id { get; set; }
 
