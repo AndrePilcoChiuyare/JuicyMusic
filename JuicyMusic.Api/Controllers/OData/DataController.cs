@@ -16,8 +16,4 @@ public class DataController(IMediator mediator) : ODataController
     [EnableQuery]
     public Task<IQueryable<TrackDto>> GetTracks()
         => mediator.Send(new ListTracksQuery());
-
-    [HttpPost("tracks")]
-    public Task<TrackDto> CreateTrack([FromBody] CreateTrackCommand command)
-        => mediator.Send(command);
 }
