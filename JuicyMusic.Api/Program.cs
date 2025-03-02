@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.OData.NewtonsoftJson;
 using JuicyMusic.Api.Configuration;
 using JuicyMusic.Data.Extensions;
 using JuicyMusic.Application.Data.Queries.ListTracks;
+using JuicyMusic.Application.Data.Repository.TrackRepository;
+using JuicyMusic.Application.Data.Repository.AlbumRepository;
+using JuicyMusic.Application.Data.Repository.ArtistRepository;
+using JuicyMusic.Application.Data.Repository.GenreRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +33,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDataServices();
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<ListTracksQuery>());
+
+// Register Repositories (Assuming they are implemented)
+builder.Services.AddScoped<ITrackRepository>();
+builder.Services.AddScoped<IAlbumRepository>();
+builder.Services.AddScoped<IArtistRepository>();
+builder.Services.AddScoped<IGenreRepository>();
 
 var app = builder.Build();
 
