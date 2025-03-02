@@ -6,7 +6,7 @@ using JuicyMusic.Application.Data.Repository.AlbumRepository;
 using JuicyMusic.Application.Data.Repository.ArtistRepository;
 using JuicyMusic.Application.Data.Repository.GenreRepository;
 
-namespace JuicyMusic.Application.Commands.Tracks.CreateTrack;
+namespace JuicyMusic.Application.Commands.Tracks;
 
 internal class CreateTrackCommandHandler(
     ITrackRepository trackRepository,

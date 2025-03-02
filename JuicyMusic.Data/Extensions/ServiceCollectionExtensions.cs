@@ -40,7 +40,7 @@ public static class ServiceCollectionExtensions
             .AddScoped<IGenreRepository, GenreRepository>()
             .AddDbContext<JuicyMusicContext>(options =>
             {
-                options.UseSqlite("Data source=juicymusic.db");
+                options.UseSqlite("Data Source=C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Data\\juicymusic.db");
             });
     }
 }
