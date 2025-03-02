@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JuicyMusic.Data.Migrations
 {
     [DbContext(typeof(JuicyMusicContext))]
-    [Migration("20250219044920_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250302231116_AddGenresTable")]
+    partial class AddGenresTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
