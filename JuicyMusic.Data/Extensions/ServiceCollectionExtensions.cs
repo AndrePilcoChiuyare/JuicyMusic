@@ -9,6 +9,14 @@ using JuicyMusic.Application.Data.Queries.ListFavoriteArtists;
 using JuicyMusic.Application.Data.Queries.ListFavoriteTracks;
 using JuicyMusic.Application.Data.Queries.ListUsers;
 using JuicyMusic.Data.Queries;
+using JuicyMusic.Application.Data.Repository.TrackRepository;
+using JuicyMusic.Data.Repository.TrackRepository;
+using JuicyMusic.Application.Data.Repository.AlbumRepository;
+using JuicyMusic.Data.Repository.AlbumRepository;
+using JuicyMusic.Application.Data.Repository.ArtistRepository;
+using JuicyMusic.Data.Repository.ArtistRepository;
+using JuicyMusic.Application.Data.Repository.GenreRepository;
+using JuicyMusic.Data.Repository.GenreRepository;
 
 namespace JuicyMusic.Data.Extensions;
 
@@ -26,6 +34,10 @@ public static class ServiceCollectionExtensions
             .AddScoped<IListGenresDataQuery, ListGenresDataQuery>()
             .AddScoped<IListTracksDataQuery, ListTracksDataQuery>()
             .AddScoped<IListUsersDataQuery, ListUsersDataQuery>()
+            .AddScoped<ITrackRepository, TrackRepository>()
+            .AddScoped<IAlbumRepository, AlbumRepository>()
+            .AddScoped<IArtistRepository, ArtistRepository>()
+            .AddScoped<IGenreRepository, GenreRepository>()
             .AddDbContext<JuicyMusicContext>(options =>
             {
                 options.UseSqlite("Data source=juicymusic.db");
