@@ -9,12 +9,13 @@ namespace JuicyMusic.Api.Controllers;
 public class GenresController(IMediator mediator) : ControllerBase
 {
     [HttpPost]
-    public async Task<IActionResult> CreateGenre([FromBody] CreateGenreRequestDto request)
+    public async Task<IActionResult> CreateGenre([FromBody] GenreRequestDto request)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var command = new CreateGenreCommand {
+        var command = new CreateGenreCommand
+        {
             Name = request.Name
         };
 

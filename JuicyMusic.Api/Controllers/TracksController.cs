@@ -1,3 +1,5 @@
+using JuicyMusic.Api.Models.Dto;
+using JuicyMusic.Application.Commands.Genres;
 using JuicyMusic.Application.Commands.Tracks;
 using JuicyMusic.Application.Models.Dto;
 using MediatR;
@@ -9,6 +11,22 @@ namespace JuicyMusic.Api.Controllers;
 public class TracksController(IMediator mediator) : ControllerBase
 {
     [HttpPost]
-    public Task<TrackResponseDto> CreateTrack([FromBody] CreateTrackCommand command)
-        => mediator.Send(command);
+    public async Task<IActionResult> CreateTrack([FromBody] TrackRequestDto request)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        var command = new CreateTrackCommand
+        {
+            Name = request.Name,
+            DurationMs = request.DurationMs,
+            GenreId = request.GenreId,
+            AlbumId = request.AlbumId,
+            ArtistId = request.ArtistId,
+            ImageUrl = request.ImageUrl
+        };
+
+        var result = await mediator.Send(command);
+        return Ok(result);
+    }
 }
