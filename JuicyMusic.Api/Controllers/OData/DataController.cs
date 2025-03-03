@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
 using JuicyMusic.Application.Models.Dto;
 using JuicyMusic.Application.Commands.Tracks;
+using JuicyMusic.Application.Data.Queries.ListGenres;
 
 namespace JuicyMusic.Api.Controllers;
 
@@ -16,4 +17,9 @@ public class DataController(IMediator mediator) : ODataController
     [EnableQuery]
     public Task<IQueryable<TrackResponseDto>> GetTracks()
         => mediator.Send(new ListTracksQuery());
+
+    [HttpGet("genres")]
+    [EnableQuery]
+    public Task<IQueryable<GenreResponseDto>> GetGenres()
+        => mediator.Send(new ListGenresQuery());
 }
