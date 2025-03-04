@@ -6,7 +6,9 @@ public class ListAlbumsDataQueryResult
 
     public string Name { get; set; }
 
-    public string Type { get; set; }
+    public int TypeId { get; set; }
+
+    public string TypeName { get; set; }
 
     public int TotalTracks { get; set; }
 
@@ -14,7 +16,11 @@ public class ListAlbumsDataQueryResult
 
     public int DurationMs { get; set; }
 
+    public Guid GenreId { get; set; }
+
     public string GenreName { get; set; }
+
+    public Guid ArtistId { get; set; }
 
     public string ArtistName { get; set; }
 

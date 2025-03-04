@@ -11,7 +11,7 @@ public record CreateAlbumCommand : IRequest<AlbumResponseDto>
 
     public int TotalTracks { get; set; }
 
-    public DateTime ReleaseDate { get; set; }
+    public string ReleaseDate { get; set; }
 
     public int DurationMs { get; set; }
 

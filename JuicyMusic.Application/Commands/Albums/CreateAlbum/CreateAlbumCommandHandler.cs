@@ -19,9 +19,25 @@ internal class CreateAlbumCommandHandler(
         Genre genre = await genreRepository.GetGenreById(command.GenreId) ?? throw new InvalidOperationException("Invalid genre ID");
         Artist artist = await artistRepository.GetArtistById(command.ArtistId) ?? throw new InvalidOperationException("Invalid artist ID");
 
-        DateTime? releaseDate = command.ReleaseDate;
-        if (releaseDate is null)
+        DateTime? releaseDate;
+
+        string trimmedReleaseDate = command.ReleaseDate?.Trim() ?? string.Empty;
+
+        if (string.IsNullOrEmpty(trimmedReleaseDate))
+        {
             releaseDate = DateTime.Now;
+        }
+        else
+        {
+            if (DateTime.TryParse(trimmedReleaseDate, out DateTime parsedDate))
+            {
+                releaseDate = parsedDate;
+            }
+            else
+            {
+                throw new InvalidOperationException("Invalid releaseDate.");
+            }
+        }
 
         Album album = Album.Create(
             Guid.NewGuid(),

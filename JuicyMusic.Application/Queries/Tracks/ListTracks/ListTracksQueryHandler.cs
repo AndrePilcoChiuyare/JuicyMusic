@@ -20,8 +20,11 @@ public class ListTracksQueryHandler : IRequestHandler<ListTracksQuery, IQueryabl
                 Id = t.Id,
                 Name = t.Name,
                 DurationMs = t.DurationMs,
+                GenreId = t.GenreId,
                 GenreName = t.GenreName,
+                AlbumId = t.AlbumId,
                 AlbumName = t.AlbumName,
+                ArtistId = t.ArtistId,
                 ArtistName = t.ArtistName,
                 ImageUrl = t.ImageUrl
             });

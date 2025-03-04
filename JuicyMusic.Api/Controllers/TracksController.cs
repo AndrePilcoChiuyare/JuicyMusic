@@ -1,7 +1,5 @@
 using JuicyMusic.Api.Models.Dto;
-using JuicyMusic.Application.Commands.Genres;
 using JuicyMusic.Application.Commands.Tracks;
-using JuicyMusic.Application.Models.Dto;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
