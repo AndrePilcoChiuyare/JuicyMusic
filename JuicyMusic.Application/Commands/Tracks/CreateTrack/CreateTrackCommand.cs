@@ -9,6 +9,5 @@ public record CreateTrackCommand : IRequest<TrackResponseDto>
     public int DurationMs { get; set; }
     public Guid GenreId { get; set; }
     public Guid AlbumId { get; set; }
-    public Guid ArtistId { get; set; }
     public string ImageUrl { get; set; } = default!;
 }

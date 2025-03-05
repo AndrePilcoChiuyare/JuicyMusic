@@ -16,15 +16,11 @@ public class TrackRequestDto
 
     [Required(ErrorMessage = "GenreId is required.")]
     [JsonPropertyName("genreId")]
-    public Guid GenreId { get; set; }
+    public string GenreId { get; set; }
 
     [Required(ErrorMessage = "AlbumId is required.")]
     [JsonPropertyName("albumId")]
-    public Guid AlbumId { get; set; }
-
-    [Required(ErrorMessage = "ArtistId is required.")]
-    [JsonPropertyName("artistId")]
-    public Guid ArtistId { get; set; }
+    public string AlbumId { get; set; }
 
     [Required(ErrorMessage = "ImageUrl is required")]
     [JsonPropertyName("imageUrl")]

@@ -18,9 +18,8 @@ public class TracksController(IMediator mediator) : ControllerBase
         {
             Name = request.Name,
             DurationMs = request.DurationMs,
-            GenreId = request.GenreId,
-            AlbumId = request.AlbumId,
-            ArtistId = request.ArtistId,
+            GenreId = Guid.Parse(request.GenreId),
+            AlbumId = Guid.Parse(request.AlbumId),
             ImageUrl = request.ImageUrl
         };
 

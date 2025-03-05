@@ -7,6 +7,7 @@ using JuicyMusic.Application.Models.Dto;
 using JuicyMusic.Application.Commands.Tracks;
 using JuicyMusic.Application.Data.Queries.ListGenres;
 using JuicyMusic.Application.Data.Queries.ListAlbums;
+using JuicyMusic.Application.Data.Queries.ListArtists;
 
 namespace JuicyMusic.Api.Controllers;
 
@@ -29,7 +30,7 @@ public class DataController(IMediator mediator) : ODataController
     public Task<IQueryable<AlbumResponseDto>> GetAlbums()
         => mediator.Send(new ListAlbumsQuery());
 
-    [HttpPost("artists")]
+    [HttpGet("artists")]
     [EnableQuery]
     public Task<IQueryable<ArtistResponseDto>> GetArtists()
         => mediator.Send(new ListArtistsQuery());

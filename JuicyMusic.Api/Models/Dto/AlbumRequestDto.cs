@@ -11,7 +11,7 @@ public class AlbumRequestDto
     public string Name { get; set; }
 
     [Required(ErrorMessage = "TypeId is required.")]
-    [JsonPropertyName("durationMs")]
+    [JsonPropertyName("typeId")]
     public int TypeId { get; set; }
 
     [Required(ErrorMessage = "TotalTracks is required.")]

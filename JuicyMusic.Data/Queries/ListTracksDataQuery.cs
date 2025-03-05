@@ -14,7 +14,7 @@ internal class ListTracksDataQuery(JuicyMusicContext db) : IListTracksDataQuery
             DurationMs = i.DurationMs,
             GenreId = i.GenreId,
             GenreName = i.Genre.Name,
-            AlbumId = i.GenreId,
+            AlbumId = i.AlbumId,
             AlbumName = i.Album.Name,
             ArtistId = i.ArtistId,
             ArtistName = i.Artist.Name,

@@ -3,6 +3,7 @@ using Microsoft.OData.ModelBuilder;
 using JuicyMusic.Application.Data.Queries.ListTracks;
 using JuicyMusic.Application.Data.Queries.ListGenres;
 using JuicyMusic.Application.Data.Queries.ListAlbums;
+using JuicyMusic.Application.Data.Queries.ListArtists;
 
 namespace JuicyMusic.Api.Configuration;
 
@@ -26,6 +27,11 @@ public static class ODataConfiguration
         EntitySetConfiguration<ListAlbumsDataQueryResult> albumsSet = builder
             .EntitySet<ListAlbumsDataQueryResult>("albums");
         albumsSet.EntityType.HasKey(a => a.Id);
+
+        // Configure artists entity set
+        EntitySetConfiguration<ListArtistsDataQueryResult> artistsSet = builder
+            .EntitySet<ListArtistsDataQueryResult>("artists");
+        artistsSet.EntityType.HasKey(a => a.Id);
 
         return builder.GetEdmModel();
     }

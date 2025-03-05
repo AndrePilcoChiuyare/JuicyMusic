@@ -10,6 +10,8 @@ public class ListArtistsDataQueryResult
 
     public string Description { get; set; }
 
+    public Guid GenreId { get; set; }
+
     public string GenreName { get; set; }
 
     public string ImageUrl { get; set; }

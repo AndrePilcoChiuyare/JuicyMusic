@@ -17,9 +17,9 @@ internal class CreateTrackCommandHandler(
     public async Task<TrackResponseDto> Handle(CreateTrackCommand command, CancellationToken cancellationToken)
     {
         // query the genre, album and artist based on the ids
-        var genre = await genreRepository.GetGenreById(command.GenreId);
-        var album = await albumRepository.GetAlbumById(command.AlbumId);
-        var artist = await artistRepository.GetArtistById(command.ArtistId);
+        var genre = await genreRepository.GetGenreById(command.GenreId) ?? throw new InvalidOperationException("Invalid genre ID");
+        var album = await albumRepository.GetAlbumById(command.AlbumId) ?? throw new InvalidOperationException("Invalid album ID");
+        var artist = await artistRepository.GetArtistById(album.Artist.Id) ?? throw new InvalidOperationException("Invalid artist ID");
 
         if (genre is null || album is null || artist is null)
             throw new InvalidOperationException("Invalid genre, album or artist ID");
@@ -43,8 +43,12 @@ internal class CreateTrackCommandHandler(
         {
             Id = track.Id,
             Name = track.Name,
+            DurationMs = track.DurationMs,
+            ArtistId = artist.Id,
             ArtistName = artist.Name,
+            AlbumId = album.Id,
             AlbumName = album.Name,
+            GenreId = genre.Id,
             GenreName = genre.Name,
             ImageUrl = track.ImageUrl
         };

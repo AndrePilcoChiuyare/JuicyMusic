@@ -14,6 +14,7 @@ internal class ListArtistsDataQuery(JuicyMusicContext db) : IListArtistsDataQuer
             Name = i.Name,
             Followers = i.Followers,
             Description = i.Description,
+            GenreId = i.GenreId,
             GenreName = i.Genre.Name,
             ImageUrl = i.ImageUrl,
         });

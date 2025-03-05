@@ -13,18 +13,29 @@ internal class AlbumRepository(JuicyMusicContext db) : IAlbumRepository
         var entity = await db.Set<AlbumEntity>()
             .Include(t => t.Genre)
             .Include(t => t.Artist)
+                .ThenInclude(a => a.Genre)  // Include Artist's Genre
             .AsNoTracking()
             .FirstOrDefaultAsync(i => i.Id == id);
 
-        if (entity is null || entity.Genre is null || entity.Artist is null)
-             return null;
+        if (entity is null)
+            return null;
+
+        if (entity.Genre is null || entity.Artist is null || entity.Artist.Genre is null)
+            throw new InvalidOperationException("Required related entities not found");
 
         var genre = new Genre(entity.GenreId, entity.Genre.Name);
         var artistGenre = new Genre(entity.Artist.GenreId, entity.Artist.Genre.Name);
+        var artist = new Artist(
+            entity.Artist.Id,
+            entity.Artist.Name,
+            entity.Artist.Description,
+            artistGenre,
+            entity.Artist.ImageUrl,
+            entity.Artist.Followers
+        );
 
-        var artist = new Artist(entity.ArtistId, entity.Artist.Name, entity.Artist.Description, artistGenre, entity.Artist.ImageUrl, entity.Artist.Followers);
-
-        var albumType = AlbumType.GetById(entity.TypeId) ?? throw new InvalidOperationException("Invalid album type ID");
+        var albumType = AlbumType.GetById(entity.TypeId)
+            ?? throw new InvalidOperationException("Invalid album type ID");
 
         return new Album(
             entity.Id,
