@@ -22,7 +22,7 @@ internal class AlbumRepository(JuicyMusicContext db) : IAlbumRepository
         var genre = new Genre(entity.GenreId, entity.Genre.Name);
         var artistGenre = new Genre(entity.Artist.GenreId, entity.Artist.Genre.Name);
 
-        var artist = new Artist(entity.ArtistId, entity.Artist.Name, entity.Artist.Description, artistGenre, entity.Artist.ImageUrl);
+        var artist = new Artist(entity.ArtistId, entity.Artist.Name, entity.Artist.Description, artistGenre, entity.Artist.ImageUrl, entity.Artist.Followers);
 
         var albumType = AlbumType.GetById(entity.TypeId) ?? throw new InvalidOperationException("Invalid album type ID");
 

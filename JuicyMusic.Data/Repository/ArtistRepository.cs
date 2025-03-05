@@ -24,7 +24,8 @@ internal class ArtistRepository(JuicyMusicContext db) : IArtistRepository
             entity.Name,
             entity.Description,
             genre,
-            entity.ImageUrl
+            entity.ImageUrl,
+            entity.Followers
         );
     }
 

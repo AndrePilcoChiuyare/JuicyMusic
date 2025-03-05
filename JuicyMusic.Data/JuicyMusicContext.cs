@@ -53,7 +53,7 @@ internal class JuicyMusicContext : DbContext, IDatabase
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlite("Data Source=C:\\Users\\andre\\OneDrive\\Documentos\\JuicyMusic\\JuicyMusic.Data\\juicymusic.db");
+            optionsBuilder.UseSqlite("Data Source=C:\\Users\\Andre\\Documents\\Bootcamp\\api-first-design\\JuicyMusic\\JuicyMusic.Data\\juicymusic.db");
         }
     }
 

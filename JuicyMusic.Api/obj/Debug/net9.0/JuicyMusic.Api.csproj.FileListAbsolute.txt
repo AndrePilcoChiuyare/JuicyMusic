@@ -178,3 +178,5 @@ C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Api\obj
 C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Api\obj\Debug\net9.0\ref\JuicyMusic.Api.dll
 C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Api\bin\Debug\net9.0\MediatR.dll
 C:\Users\andre\OneDrive\Documentos\JuicyMusic\JuicyMusic.Api\bin\Debug\net9.0\MediatR.Contracts.dll
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Api\bin\Debug\net9.0\MediatR.dll
+C:\Users\Andre\Documents\Bootcamp\api-first-design\JuicyMusic\JuicyMusic.Api\bin\Debug\net9.0\MediatR.Contracts.dll

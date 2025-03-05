@@ -1,10 +1,10 @@
 ﻿namespace JuicyMusic.Domain.Models;
 public class Artist
 {
-    internal Artist(Guid id, string name, string description, Genre genre, string imageUrl)
+    internal Artist(Guid id, string name, string description, Genre genre, string imageUrl, int followers)
     {
         Name = name;
-        Followers = 0;
+        Followers = followers;
         Description = description;
         Genre = genre;
         ImageUrl = imageUrl;
@@ -22,7 +22,7 @@ public class Artist
         if (string.IsNullOrWhiteSpace(imageUrl) || !Uri.IsWellFormedUriString(imageUrl, UriKind.RelativeOrAbsolute))
             throw new ArgumentException("URL is not valid.");
 
-        return new Artist(id, name, description, genre, imageUrl);
+        return new Artist(id, name, description, genre, imageUrl, 0);
     }
 
     public string Name { get; private set; }

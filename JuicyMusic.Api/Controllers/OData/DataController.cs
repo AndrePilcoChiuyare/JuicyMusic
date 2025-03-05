@@ -28,4 +28,9 @@ public class DataController(IMediator mediator) : ODataController
     [EnableQuery]
     public Task<IQueryable<AlbumResponseDto>> GetAlbums()
         => mediator.Send(new ListAlbumsQuery());
+
+    [HttpPost("artists")]
+    [EnableQuery]
+    public Task<IQueryable<ArtistResponseDto>> GetArtists()
+        => mediator.Send(new ListArtistsQuery());
 }

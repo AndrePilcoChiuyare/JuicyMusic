@@ -24,7 +24,7 @@ internal class TrackRepository(JuicyMusicContext db) : ITrackRepository
         var albumGenre = new Genre(entity.GenreId, entity.Genre.Name);
         var artistGenre = new Genre(entity.Artist.GenreId, entity.Artist.Genre.Name);
 
-        var artist = new Artist(entity.ArtistId, entity.Artist.Name, entity.Artist.Description, artistGenre, entity.Artist.ImageUrl);
+        var artist = new Artist(entity.ArtistId, entity.Artist.Name, entity.Artist.Description, artistGenre, entity.Artist.ImageUrl, entity.Artist.Followers);
         var albumType = AlbumType.GetById(entity.Album.TypeId) ?? throw new InvalidOperationException("Invalid album type ID");
         var album = new Album(entity.AlbumId, entity.Album.Name, albumType, entity.Album.TotalTracks, entity.Album.ReleaseDate, entity.Album.DurationMs, albumGenre, entity.Album.ImageUrl, artist);
 
